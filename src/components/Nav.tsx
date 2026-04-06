@@ -44,10 +44,10 @@ export default function Nav() {
           {(section) => (
             <a
               href={`#${section.id}`}
-              class={`px-3 py-1.5 rounded-lg text-xs sm:text-sm font-medium whitespace-nowrap transition-colors ${
+              class={`px-3 py-1.5 rounded-lg text-sm font-medium whitespace-nowrap transition-colors ${
                 activeId() === section.id
                   ? "bg-primary text-primary-content"
-                  : "text-base-content/50 hover:bg-base-300"
+                  : "text-base-content/70 hover:bg-base-300 hover:text-base-content/90"
               }`}
               aria-current={activeId() === section.id ? "true" : undefined}
             >

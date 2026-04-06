@@ -18,7 +18,7 @@ function CareerCard(props: { entry: CareerEntry; index: number }) {
       <div class="absolute left-0 top-1.5 w-6 h-6 rounded-full bg-primary border-4 border-base-200 shadow-sm" />
 
       <Collapsible open={open()} onOpenChange={setOpen}>
-        <div class="bg-base-300 rounded-xl p-5 hover:shadow-md transition-shadow cursor-pointer">
+        <div class="bg-base-300 rounded-xl p-5 hover:shadow-md transition-shadow cursor-pointer border border-base-content/10">
           <Collapsible.Trigger class="w-full text-left">
             <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-2">
               <h3 class="font-bold text-lg text-base-content">
@@ -28,8 +28,8 @@ function CareerCard(props: { entry: CareerEntry; index: number }) {
                 {props.entry.period}
               </span>
             </div>
-            <p class="text-sm text-base-content/50 mb-2">{props.entry.overview}</p>
-            <div class="flex items-center gap-1 text-xs text-base-content/50">
+            <p class="text-sm text-base-content/80 mb-2">{props.entry.overview}</p>
+            <div class="flex items-center gap-1 text-xs text-base-content/60">
               <svg
                 class="w-4 h-4 transition-transform"
                 classList={{ "rotate-180": open() }}
@@ -53,7 +53,7 @@ function CareerCard(props: { entry: CareerEntry; index: number }) {
             <div class="mt-4 space-y-4 border-t border-base-200 pt-4">
               {/* Positions */}
               <div>
-                <h4 class="text-xs font-bold text-base-content/50 uppercase tracking-wider mb-2">
+                <h4 class="text-sm font-bold text-base-content/70 mb-2">
                   ポジション
                 </h4>
                 <div class="flex flex-wrap gap-1.5">
@@ -69,7 +69,7 @@ function CareerCard(props: { entry: CareerEntry; index: number }) {
 
               {/* Technologies */}
               <div>
-                <h4 class="text-xs font-bold text-base-content/50 uppercase tracking-wider mb-2">
+                <h4 class="text-sm font-bold text-base-content/70 mb-2">
                   技術スタック
                 </h4>
                 <div class="flex flex-wrap gap-1.5">
@@ -85,14 +85,14 @@ function CareerCard(props: { entry: CareerEntry; index: number }) {
 
               {/* Tasks */}
               <div>
-                <h4 class="text-xs font-bold text-base-content/50 uppercase tracking-wider mb-2">
+                <h4 class="text-sm font-bold text-base-content/70 mb-2">
                   業務内容
                 </h4>
                 <ul class="space-y-1.5">
                   <For each={props.entry.tasks}>
                     {(task) => (
-                      <li class="flex items-start gap-2 text-sm text-base-content/70">
-                        <span class="w-1.5 h-1.5 rounded-full bg-primary/70 mt-2 shrink-0" aria-hidden="true" />
+                      <li class="flex items-start gap-2 text-sm text-base-content/85">
+                        <span class="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" aria-hidden="true" />
                         {task}
                       </li>
                     )}
@@ -103,14 +103,14 @@ function CareerCard(props: { entry: CareerEntry; index: number }) {
               {/* Notes */}
               <Show when={props.entry.notes}>
                 <div>
-                  <h4 class="text-xs font-bold text-base-content/50 uppercase tracking-wider mb-2">
+                  <h4 class="text-sm font-bold text-base-content/70 mb-2">
                     心がけたこと
                   </h4>
                   <ul class="space-y-1.5">
                     <For each={props.entry.notes}>
                       {(note) => (
-                        <li class="flex items-start gap-2 text-sm text-base-content/50 italic">
-                          <span class="w-1.5 h-1.5 rounded-full bg-neutral mt-2 shrink-0" aria-hidden="true" />
+                        <li class="flex items-start gap-2 text-sm text-base-content/75">
+                          <span class="w-1.5 h-1.5 rounded-full bg-secondary/50 mt-2 shrink-0" aria-hidden="true" />
                           {note}
                         </li>
                       )}

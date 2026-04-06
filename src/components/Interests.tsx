@@ -15,7 +15,7 @@ export default function Interests(props: InterestsProps) {
         <div class="grid gap-4 md:grid-cols-2">
           <For each={props.recentTech}>
             {(section) => (
-              <div class="card bg-base-300">
+              <div class="card bg-base-300 border border-base-content/10">
                 <div class="card-body p-5">
                   <h3 class="font-bold text-base-content mb-3">
                     {section.title}
@@ -28,7 +28,7 @@ export default function Interests(props: InterestsProps) {
                             {item.name}
                           </span>
                           {item.description && (
-                            <p class="text-xs text-base-content/50 mt-0.5">
+                            <p class="text-xs text-base-content/75 mt-0.5">
                               {item.description}
                             </p>
                           )}
@@ -47,7 +47,7 @@ export default function Interests(props: InterestsProps) {
         <div class="grid gap-4 md:grid-cols-3">
           <For each={props.interests}>
             {(section) => (
-              <div class="card bg-base-300">
+              <div class="card bg-base-300 border border-base-content/10">
                 <div class="card-body p-5">
                   <h3 class="font-bold text-base-content mb-3">
                     {section.title}
@@ -72,7 +72,7 @@ export default function Interests(props: InterestsProps) {
         <ul class="space-y-3">
           <For each={props.books}>
             {(book) => (
-              <li class="flex items-center gap-3 text-base-content/70">
+              <li class="flex items-center gap-3 text-base-content/85">
                 <svg
                   class="w-5 h-5 text-primary shrink-0"
                   fill="none"

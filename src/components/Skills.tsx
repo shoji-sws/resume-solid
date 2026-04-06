@@ -16,13 +16,13 @@ function SkillTree(props: { items: SkillItem[]; depth?: number }) {
           <li>
             <div class="flex items-center gap-2">
               {depth() > 0 && (
-                <span class="w-1.5 h-1.5 rounded-full bg-primary/70 shrink-0" aria-hidden="true" />
+                <span class="w-1.5 h-1.5 rounded-full bg-primary shrink-0" aria-hidden="true" />
               )}
               <span
                 class={
                   depth() === 0
                     ? "font-semibold text-base-content"
-                    : "text-base-content/60"
+                    : "text-base-content/80"
                 }
               >
                 {item.name}
@@ -62,7 +62,7 @@ export default function Skills(props: SkillsProps) {
 
         <For each={props.skills}>
           {(cat) => (
-            <Tabs.Content value={cat.category} class="bg-base-300 rounded-xl p-5">
+            <Tabs.Content value={cat.category} class="bg-base-300 rounded-xl p-6 border border-base-content/10">
               <SkillTree items={cat.items} />
             </Tabs.Content>
           )}

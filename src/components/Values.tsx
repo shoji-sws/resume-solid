@@ -10,7 +10,7 @@ interface ValuesProps {
 
 function CardList(props: { title: string; items: string[]; accent?: string }) {
   return (
-    <div class="card bg-base-300">
+    <div class="card bg-base-300 border border-base-content/10">
       <div class="card-body p-5">
         <h3 class={`font-bold mb-3 ${props.accent ?? "text-base-content"}`}>
           {props.title}
@@ -18,8 +18,8 @@ function CardList(props: { title: string; items: string[]; accent?: string }) {
         <ul class="space-y-2">
           <For each={props.items}>
             {(item) => (
-              <li class="flex items-start gap-2 text-base-content/70 text-sm leading-relaxed">
-                <span class="w-1.5 h-1.5 rounded-full bg-primary/70 mt-2 shrink-0" />
+              <li class="flex items-start gap-2 text-base-content/85 text-sm leading-relaxed">
+                <span class="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" />
                 {item}
               </li>
             )}

@@ -34,7 +34,7 @@ export default function Section(props: SectionProps) {
       }`}
     >
       <div class="card-body p-6 md:p-8">
-        <h2 class="text-xl md:text-2xl font-bold text-base-content mb-6 pb-3 border-b-2 border-primary">
+        <h2 class="text-xl md:text-2xl font-bold text-base-content mb-8 pb-3 border-b border-primary/40">
           {props.title}
         </h2>
         {props.children}

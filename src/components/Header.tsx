@@ -7,12 +7,12 @@ interface HeaderProps {
 
 export default function Header(props: HeaderProps) {
   return (
-    <header class="card bg-gradient-to-br from-base-200 via-primary/30 to-base-200 text-white shadow-lg">
+    <header class="card bg-gradient-to-br from-base-200 via-primary/30 to-base-200 text-base-content shadow-lg">
       <div class="card-body text-center">
         <h1 class="text-3xl md:text-5xl font-bold mb-2 tracking-tight">
           {props.data.name}
         </h1>
-        <p class="text-base-content/60 text-lg md:text-xl mb-6">
+        <p class="text-base-content/80 text-lg md:text-xl mb-6">
           {props.data.nameEn}
         </p>
 
@@ -23,7 +23,7 @@ export default function Header(props: HeaderProps) {
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="btn btn-ghost btn-sm backdrop-blur-sm"
+                class="btn btn-outline btn-sm btn-primary backdrop-blur-sm"
               >
                 {link.label}
                 <svg
