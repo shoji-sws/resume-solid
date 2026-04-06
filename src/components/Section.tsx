@@ -28,7 +28,7 @@ export default function Section(props: SectionProps) {
     <section
       ref={ref}
       id={props.id}
-      style={{ "will-change": visible() ? "auto" : "opacity, transform" }}
+      style={{ "will-change": visible() ? "auto" : "opacity, transform", "scroll-margin-top": "3.5rem" }}
       class={`section-card bg-surface-800 rounded-2xl shadow-sm border border-surface-700 p-6 md:p-8 transition-all duration-600 motion-reduce:transition-none motion-reduce:!opacity-100 motion-reduce:!translate-y-0 ${
         visible() ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
       }`}
