@@ -28,9 +28,17 @@ function PrintHeader() {
         </For>
       </div>
 
-      <div class="mt-8 grid grid-cols-[auto_1fr] gap-x-6 gap-y-3 text-sm">
-        <span class="font-semibold text-surface-600">ポジション</span>
-        <span class="text-surface-800">{resume.positions.join(" / ")}</span>
+      <div class="mt-8 text-sm">
+        <span class="font-semibold text-surface-600">経験ポジション</span>
+        <ul class="mt-1 space-y-0.5">
+          <For each={resume.positions}>
+            {(pos) => (
+              <li class="text-surface-800 pl-3 relative before:content-[''] before:absolute before:left-0 before:top-[7px] before:w-1 before:h-1 before:rounded-full before:bg-surface-400">
+                {pos}
+              </li>
+            )}
+          </For>
+        </ul>
       </div>
     </header>
   );
