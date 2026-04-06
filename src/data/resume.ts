@@ -40,7 +40,6 @@ export interface ResumeData {
   positions: string[];
   skills: SkillCategory[];
   values: string[];
-  valuesDetailed: string[];
   strengths: string[];
   growthAreas: string[];
   careerDirection: string[];
@@ -210,8 +209,6 @@ export const resume: ResumeData = {
     "簡潔な解決策を模索",
     "小さなライブラリの組み合わせやテキスト形式の採用など、シンプルで効率的な方法",
     "長く考えるよりも、手を動かす",
-  ],
-  valuesDetailed: [
     "シンプルなものが好き",
     "AIとチームのベロシティを上げることが開発において大事",
     "詰まったらGithubでソースコード読もう",
@@ -269,6 +266,8 @@ export const resume: ResumeData = {
       items: [
         { name: "LLMエージェントによる文章作成" },
         { name: "character.aiのようなキャラクターチャット" },
+        { name: "MCP" },
+        { name: "Skills" },
       ],
     },
     {
@@ -276,19 +275,16 @@ export const resume: ResumeData = {
       items: [
         { name: "3factor" },
         { name: "Supabase" },
-        { name: "Hasura" },
         { name: "DDD" },
-        { name: "GraphQL" },
-        { name: "serverless" },
-        { name: "gRPC" },
+        { name: "Edge Computing" },
       ],
     },
     {
       title: "フロントエンド",
       items: [
-        { name: "shadcn/ui" },
-        { name: "Tailwind CSS" },
-        { name: "Storybook" },
+        { name: "ui-ux-pro-max-skill" },
+        { name: "playwright-agent" },
+        { name: "SolidJS" },
       ],
     },
   ],

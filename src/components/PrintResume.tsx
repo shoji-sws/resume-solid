@@ -4,33 +4,38 @@ import type { SkillItem } from "../data/resume";
 
 function PrintHeader() {
   return (
-    <header class="mb-6 pb-4 border-b-2 border-surface-900">
-      <h1 class="text-3xl font-bold text-surface-900 tracking-tight">
+    <header class="mb-8 pb-6 border-b-2 border-surface-900 pt-8">
+      <h1 class="text-4xl font-bold text-surface-900 tracking-tight">
         {resume.name}
       </h1>
-      <p class="text-surface-500 text-sm mt-0.5">{resume.nameEn}</p>
+      <p class="text-surface-500 text-base mt-1">{resume.nameEn}</p>
 
-      <div class="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-xs text-surface-600">
-        <span>プログラマー歴: {resume.experienceYears}</span>
-        <span>フリーランス歴: {resume.freelanceYears}</span>
+      <div class="mt-8 grid grid-cols-[auto_1fr] gap-x-6 gap-y-3 text-sm">
+        <span class="font-semibold text-surface-600">プログラマー歴</span>
+        <span class="text-surface-800">{resume.experienceYears}</span>
+        <span class="font-semibold text-surface-600">フリーランス歴</span>
+        <span class="text-surface-800">{resume.freelanceYears}</span>
       </div>
 
-      <div class="mt-2 flex flex-wrap gap-x-3 gap-y-1 text-xs text-surface-500">
+      <div class="mt-8 space-y-2 text-sm text-surface-600">
         <For each={resume.links}>
           {(link) => (
-            <span>
-              {link.label}: {link.url}
-            </span>
+            <div>
+              <span class="font-semibold">{link.label}:</span>{" "}
+              <span class="text-surface-800">{link.url}</span>
+            </div>
           )}
         </For>
       </div>
 
-      <div class="mt-3 flex flex-wrap gap-1.5">
+      <div class="mt-8 space-y-2">
         <For each={resume.positions}>
           {(pos) => (
-            <span class="px-2 py-0.5 text-xs font-medium border border-surface-900 text-surface-900 rounded">
-              {pos}
-            </span>
+            <div>
+              <span class="inline-block px-3 py-1 text-sm font-medium border border-surface-900 text-surface-900 rounded">
+                {pos}
+              </span>
+            </div>
           )}
         </For>
       </div>
@@ -116,10 +121,7 @@ function PrintValues() {
         <h2 class="text-base font-bold text-surface-900 border-b border-surface-300 pb-1 mb-3">
           価値観
         </h2>
-        <div class="grid grid-cols-2 gap-4">
-          <BulletList title="コアバリュー" items={resume.values} />
-          <BulletList title="詳細" items={resume.valuesDetailed} />
-        </div>
+        <BulletList title="コアバリュー" items={resume.values} />
       </section>
 
       <section class="print-section mb-5">

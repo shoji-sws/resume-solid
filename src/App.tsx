@@ -15,7 +15,6 @@ export default function App() {
         <Skills skills={resume.skills} />
         <Values
           values={resume.values}
-          valuesDetailed={resume.valuesDetailed}
           strengths={resume.strengths}
           growthAreas={resume.growthAreas}
           careerDirection={resume.careerDirection}

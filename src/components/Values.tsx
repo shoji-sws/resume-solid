@@ -3,7 +3,6 @@ import Section from "./Section";
 
 interface ValuesProps {
   values: string[];
-  valuesDetailed: string[];
   strengths: string[];
   growthAreas: string[];
   careerDirection: string[];
@@ -33,10 +32,7 @@ export default function Values(props: ValuesProps) {
   return (
     <>
       <Section title="価値観" id="values">
-        <div class="grid gap-4 md:grid-cols-2">
-          <CardList title="コアバリュー" items={props.values} />
-          <CardList title="詳細" items={props.valuesDetailed} />
-        </div>
+        <CardList title="コアバリュー" items={props.values} />
       </Section>
 
       <Section title="強み" id="strengths">
