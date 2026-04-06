@@ -57,7 +57,7 @@ export const resume: ResumeData = {
   links: [
     { label: "Zenn", url: "https://zenn.dev/suba" },
     { label: "Blog", url: "https://www.simple-web-system.work/" },
-    { label: "Twitter", url: "https://twitter.com/subaru_shoji" },
+    { label: "X", url: "https://x.com/subaru_shoji" },
     { label: "GitHub", url: "https://github.com/subaru-shoji" },
   ],
   experienceYears: "2014年〜（12年目）",
@@ -178,20 +178,14 @@ export const resume: ResumeData = {
       ],
     },
     {
-      category: "AI Tool",
+      category: "AI Tool(2年)",
       items: [
-        {
-          name: "AI Tool",
-          years: "2年",
-          children: [
-            { name: "Claude Code" },
-            { name: "Codex" },
-            { name: "Cline" },
-            { name: "Cursor" },
-            { name: "antigravity" },
-            { name: "openspec" },
-          ],
-        },
+        { name: "Claude Code" },
+        { name: "Codex" },
+        { name: "Cline" },
+        { name: "Cursor" },
+        { name: "antigravity" },
+        { name: "openspec" },
       ],
     },
     {

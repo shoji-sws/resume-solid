@@ -4,7 +4,7 @@ import type { SkillItem } from "../data/resume";
 
 function PrintHeader() {
   return (
-    <header class="mb-6 pb-4 border-b-2 border-primary-800">
+    <header class="mb-6 pb-4 border-b-2 border-surface-900">
       <h1 class="text-3xl font-bold text-surface-900 tracking-tight">
         {resume.name}
       </h1>
@@ -28,7 +28,7 @@ function PrintHeader() {
       <div class="mt-3 flex flex-wrap gap-1.5">
         <For each={resume.positions}>
           {(pos) => (
-            <span class="px-2 py-0.5 text-xs font-medium border border-primary-800 text-primary-800 rounded">
+            <span class="px-2 py-0.5 text-xs font-medium border border-surface-900 text-surface-900 rounded">
               {pos}
             </span>
           )}
@@ -71,7 +71,7 @@ function SkillTreeFlat(props: { items: SkillItem[]; depth?: number }) {
 function PrintSkills() {
   return (
     <section class="print-section mb-5">
-      <h2 class="text-base font-bold text-primary-800 border-b border-surface-300 pb-1 mb-3">
+      <h2 class="text-base font-bold text-surface-900 border-b border-surface-300 pb-1 mb-3">
         スキル
       </h2>
       <div class="grid grid-cols-2 gap-4">
@@ -113,7 +113,7 @@ function PrintValues() {
   return (
     <>
       <section class="print-section mb-5">
-        <h2 class="text-base font-bold text-primary-800 border-b border-surface-300 pb-1 mb-3">
+        <h2 class="text-base font-bold text-surface-900 border-b border-surface-300 pb-1 mb-3">
           価値観
         </h2>
         <div class="grid grid-cols-2 gap-4">
@@ -123,14 +123,14 @@ function PrintValues() {
       </section>
 
       <section class="print-section mb-5">
-        <h2 class="text-base font-bold text-primary-800 border-b border-surface-300 pb-1 mb-3">
+        <h2 class="text-base font-bold text-surface-900 border-b border-surface-300 pb-1 mb-3">
           強み
         </h2>
         <BulletList title="" items={resume.strengths} />
       </section>
 
       <section class="print-section mb-5">
-        <h2 class="text-base font-bold text-primary-800 border-b border-surface-300 pb-1 mb-3">
+        <h2 class="text-base font-bold text-surface-900 border-b border-surface-300 pb-1 mb-3">
           今後の方向性
         </h2>
         <div class="grid grid-cols-2 gap-4">
@@ -145,7 +145,7 @@ function PrintValues() {
 function PrintCareer() {
   return (
     <section class="mb-5">
-      <h2 class="text-base font-bold text-primary-800 border-b border-surface-300 pb-1 mb-3">
+      <h2 class="text-base font-bold text-surface-900 border-b border-surface-300 pb-1 mb-3">
         職務経歴
       </h2>
       <div class="space-y-4">
@@ -156,7 +156,7 @@ function PrintCareer() {
                 <h3 class="text-sm font-bold text-surface-900">
                   {entry.title}
                 </h3>
-                <span class="text-xs text-primary-800 font-medium whitespace-nowrap">
+                <span class="text-xs text-surface-900 font-medium whitespace-nowrap">
                   {entry.period}
                 </span>
               </div>
@@ -211,7 +211,7 @@ function PrintInterests() {
   return (
     <>
       <section class="print-section mb-5">
-        <h2 class="text-base font-bold text-primary-800 border-b border-surface-300 pb-1 mb-3">
+        <h2 class="text-base font-bold text-surface-900 border-b border-surface-300 pb-1 mb-3">
           最近触って良かった技術
         </h2>
         <div class="grid grid-cols-2 gap-4">
@@ -245,7 +245,7 @@ function PrintInterests() {
       </section>
 
       <section class="print-section mb-5">
-        <h2 class="text-base font-bold text-primary-800 border-b border-surface-300 pb-1 mb-3">
+        <h2 class="text-base font-bold text-surface-900 border-b border-surface-300 pb-1 mb-3">
           関心のある技術
         </h2>
         <div class="grid grid-cols-3 gap-4">
@@ -265,7 +265,7 @@ function PrintInterests() {
       </section>
 
       <section class="print-section mb-5">
-        <h2 class="text-base font-bold text-primary-800 border-b border-surface-300 pb-1 mb-3">
+        <h2 class="text-base font-bold text-surface-900 border-b border-surface-300 pb-1 mb-3">
           好き・参考にしている技術書
         </h2>
         <ul class="space-y-0.5">
