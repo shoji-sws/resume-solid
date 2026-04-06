@@ -7,12 +7,12 @@ interface HeaderProps {
 
 export default function Header(props: HeaderProps) {
   return (
-    <header class="card bg-gradient-to-br from-base-200 via-primary/30 to-base-200 text-base-content shadow-lg">
-      <div class="card-body text-center">
-        <h1 class="text-3xl md:text-5xl font-bold mb-2 tracking-tight">
+    <header class="card bg-gradient-to-br from-base-300 via-primary/20 to-base-300 text-base-content shadow-xl border border-primary/20">
+      <div class="card-body text-center py-10 md:py-14">
+        <h1 class="text-4xl md:text-5xl font-bold mb-3 tracking-tight text-primary-content drop-shadow-sm">
           {props.data.name}
         </h1>
-        <p class="text-base-content/80 text-lg md:text-xl mb-6">
+        <p class="text-base-content/80 text-lg md:text-xl mb-8">
           {props.data.nameEn}
         </p>
 
