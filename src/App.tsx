@@ -26,8 +26,9 @@ export default function App() {
           books={resume.books}
         />
 
-        <footer class="text-center text-sm text-surface-400 py-8 no-print">
-          Built with SolidJS + Tailwind CSS
+        <footer class="text-center text-sm text-surface-400 py-8 no-print space-y-1">
+          <p>Built with SolidJS · Kobalte · Tailwind CSS</p>
+          <p>Powered by OpenSpec · ui-ux-pro-max skill</p>
         </footer>
       </main>
     </div>

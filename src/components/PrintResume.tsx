@@ -4,7 +4,7 @@ import type { SkillItem } from "../data/resume";
 
 function PrintHeader() {
   return (
-    <header class="mb-8 pb-6 border-b-2 border-surface-900 pt-8">
+    <header class="mb-8 pb-6 pt-8">
       <h1 class="text-4xl font-bold text-surface-900 tracking-tight">
         {resume.name}
       </h1>
@@ -257,9 +257,15 @@ function PrintInterests() {
                 <h3 class="text-sm font-bold text-surface-800 mb-1">
                   {section.title}
                 </h3>
-                <span class="text-xs text-surface-700">
-                  {section.items.map((i) => i.name).join(", ")}
-                </span>
+                <ul class="space-y-0.5">
+                  <For each={section.items}>
+                    {(item) => (
+                      <li class="text-xs text-surface-700 leading-relaxed pl-3 relative before:content-[''] before:absolute before:left-0 before:top-[7px] before:w-1 before:h-1 before:rounded-full before:bg-surface-400">
+                        {item.name}
+                      </li>
+                    )}
+                  </For>
+                </ul>
               </div>
             )}
           </For>
