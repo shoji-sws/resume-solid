@@ -28,16 +28,9 @@ function PrintHeader() {
         </For>
       </div>
 
-      <div class="mt-8 space-y-2">
-        <For each={resume.positions}>
-          {(pos) => (
-            <div>
-              <span class="inline-block px-3 py-1 text-sm font-medium border border-surface-900 text-surface-900 rounded">
-                {pos}
-              </span>
-            </div>
-          )}
-        </For>
+      <div class="mt-8 grid grid-cols-[auto_1fr] gap-x-6 gap-y-3 text-sm">
+        <span class="font-semibold text-surface-600">ポジション</span>
+        <span class="text-surface-800">{resume.positions.join(" / ")}</span>
       </div>
     </header>
   );
