@@ -293,7 +293,7 @@ function PrintInterests() {
 
 export default function PrintResume() {
   return (
-    <div data-theme="resume-light" class="max-w-[210mm] mx-auto bg-base-100 text-base-content px-8 py-6 min-h-screen print:px-0 print:py-0">
+    <div data-theme="light" class="max-w-[210mm] mx-auto bg-base-100 text-base-content px-8 py-6 min-h-screen print:px-0 print:py-0">
       <PrintHeader />
       <PrintSkills />
       <PrintValues />
