@@ -1,27 +1,78 @@
 @import "tailwindcss";
+@plugin "daisyui";
+
+/* Dark theme (default) */
+@plugin "daisyui/theme" {
+  name: "resume-dark";
+  default: true;
+  prefersdark: false;
+  color-scheme: dark;
+
+  --color-base-100: oklch(15% 0.02 260);
+  --color-base-200: oklch(22% 0.02 260);
+  --color-base-300: oklch(32% 0.02 250);
+  --color-base-content: oklch(92% 0.01 250);
+  --color-primary: oklch(50% 0.27 260);
+  --color-primary-content: oklch(98% 0.01 260);
+  --color-secondary: oklch(60% 0.20 260);
+  --color-secondary-content: oklch(98% 0.01 260);
+  --color-accent: oklch(62% 0.22 260);
+  --color-accent-content: oklch(98% 0.01 260);
+  --color-neutral: oklch(42% 0.02 250);
+  --color-neutral-content: oklch(85% 0.01 250);
+  --color-info: oklch(70% 0.2 220);
+  --color-info-content: oklch(98% 0.01 220);
+  --color-success: oklch(65% 0.25 140);
+  --color-success-content: oklch(98% 0.01 140);
+  --color-warning: oklch(80% 0.25 80);
+  --color-warning-content: oklch(20% 0.05 80);
+  --color-error: oklch(65% 0.3 30);
+  --color-error-content: oklch(98% 0.01 30);
+
+  --radius-selector: 1rem;
+  --radius-field: 0.5rem;
+  --radius-box: 1rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 1;
+  --noise: 0;
+}
+
+/* Light theme for print route */
+@plugin "daisyui/theme" {
+  name: "resume-light";
+  default: false;
+  prefersdark: false;
+  color-scheme: light;
+
+  --color-base-100: oklch(100% 0 0);
+  --color-base-200: oklch(96% 0.01 250);
+  --color-base-300: oklch(92% 0.01 250);
+  --color-base-content: oklch(15% 0.02 260);
+  --color-primary: oklch(50% 0.27 260);
+  --color-primary-content: oklch(98% 0.01 260);
+  --color-secondary: oklch(60% 0.20 260);
+  --color-secondary-content: oklch(98% 0.01 260);
+  --color-neutral: oklch(65% 0.02 250);
+  --color-neutral-content: oklch(35% 0.02 250);
+  --color-info: oklch(70% 0.2 220);
+  --color-info-content: oklch(98% 0.01 220);
+  --color-success: oklch(65% 0.25 140);
+  --color-success-content: oklch(98% 0.01 140);
+  --color-warning: oklch(80% 0.25 80);
+  --color-warning-content: oklch(20% 0.05 80);
+  --color-error: oklch(65% 0.3 30);
+  --color-error-content: oklch(98% 0.01 30);
+
+  --radius-box: 0rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
+}
 
 @theme {
   --font-sans: "Noto Sans JP", system-ui, sans-serif;
-  --color-primary-50: #eff6ff;
-  --color-primary-100: #dbeafe;
-  --color-primary-200: #bfdbfe;
-  --color-primary-300: #93c5fd;
-  --color-primary-400: #60a5fa;
-  --color-primary-500: #3b82f6;
-  --color-primary-600: #2563eb;
-  --color-primary-700: #1d4ed8;
-  --color-primary-800: #1e40af;
-  --color-primary-900: #1e3a8a;
-  --color-surface-50: #f8fafc;
-  --color-surface-100: #f1f5f9;
-  --color-surface-200: #e2e8f0;
-  --color-surface-300: #cbd5e1;
-  --color-surface-400: #94a3b8;
-  --color-surface-500: #64748b;
-  --color-surface-600: #475569;
-  --color-surface-700: #334155;
-  --color-surface-800: #1e293b;
-  --color-surface-900: #0f172a;
 }
 
 * {
@@ -34,8 +85,6 @@ html {
 
 body {
   font-family: var(--font-sans);
-  background-color: var(--color-surface-900);
-  color: var(--color-surface-200);
   line-height: 1.7;
   margin: 0;
   -webkit-font-smoothing: antialiased;
@@ -75,7 +124,7 @@ body {
   }
 
   header {
-    background: var(--color-surface-800) !important;
+    background: var(--color-base-200) !important;
     border-radius: 0 !important;
     box-shadow: none !important;
   }
@@ -111,7 +160,7 @@ body {
 
 /* Focus visible ring for keyboard navigation */
 *:focus-visible {
-  outline: 2px solid var(--color-primary-500);
+  outline: 2px solid oklch(var(--color-primary));
   outline-offset: 2px;
   border-radius: 4px;
 }

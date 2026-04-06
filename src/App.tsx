@@ -8,7 +8,7 @@ import Interests from "./components/Interests";
 
 export default function App() {
   return (
-    <div class="min-h-screen bg-surface-900">
+    <div class="min-h-screen bg-base-100">
       <Nav />
       <main class="max-w-3xl mx-auto px-4 py-8 md:py-12 space-y-6">
         <Header data={resume} />
@@ -26,17 +26,18 @@ export default function App() {
           books={resume.books}
         />
 
-        <footer class="text-center text-sm text-surface-400 py-8 no-print space-y-1">
+        <footer class="text-center text-sm text-base-content/50 py-8 no-print space-y-1">
           <p>
             Built with{" "}
-            <a href="https://www.solidjs.com/" target="_blank" rel="noopener noreferrer" class="hover:text-surface-200 transition-colors">SolidJS</a> ·{" "}
-            <a href="https://kobalte.dev/" target="_blank" rel="noopener noreferrer" class="hover:text-surface-200 transition-colors">Kobalte</a> ·{" "}
-            <a href="https://tailwindcss.com/" target="_blank" rel="noopener noreferrer" class="hover:text-surface-200 transition-colors">Tailwind CSS</a>
+            <a href="https://www.solidjs.com/" target="_blank" rel="noopener noreferrer" class="link link-hover">SolidJS</a> ·{" "}
+            <a href="https://kobalte.dev/" target="_blank" rel="noopener noreferrer" class="link link-hover">Kobalte</a> ·{" "}
+            <a href="https://tailwindcss.com/" target="_blank" rel="noopener noreferrer" class="link link-hover">Tailwind CSS</a> ·{" "}
+            <a href="https://daisyui.com/" target="_blank" rel="noopener noreferrer" class="link link-hover">DaisyUI</a>
           </p>
           <p>
             Powered by{" "}
-            <a href="https://github.com/Fission-AI/OpenSpec" target="_blank" rel="noopener noreferrer" class="hover:text-surface-200 transition-colors">OpenSpec</a> ·{" "}
-            <a href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill" target="_blank" rel="noopener noreferrer" class="hover:text-surface-200 transition-colors">ui-ux-pro-max skill</a>
+            <a href="https://github.com/Fission-AI/OpenSpec" target="_blank" rel="noopener noreferrer" class="link link-hover">OpenSpec</a> ·{" "}
+            <a href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill" target="_blank" rel="noopener noreferrer" class="link link-hover">ui-ux-pro-max skill</a>
           </p>
         </footer>
       </main>

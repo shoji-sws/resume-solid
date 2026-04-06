@@ -5,35 +5,35 @@ import type { SkillItem } from "../data/resume";
 function PrintHeader() {
   return (
     <header class="mb-8 pb-6 pt-8">
-      <h1 class="text-4xl font-bold text-surface-900 tracking-tight">
+      <h1 class="text-4xl font-bold text-base-content tracking-tight">
         {resume.name}
       </h1>
-      <p class="text-surface-500 text-base mt-1">{resume.nameEn}</p>
+      <p class="text-base-content/50 text-base mt-1">{resume.nameEn}</p>
 
       <div class="mt-8 grid grid-cols-[auto_1fr] gap-x-6 gap-y-3 text-sm">
-        <span class="font-semibold text-surface-600">プログラマー歴</span>
-        <span class="text-surface-800">{resume.experienceYears}</span>
-        <span class="font-semibold text-surface-600">フリーランス歴</span>
-        <span class="text-surface-800">{resume.freelanceYears}</span>
+        <span class="font-semibold text-base-content/60">プログラマー歴</span>
+        <span class="text-base-content">{resume.experienceYears}</span>
+        <span class="font-semibold text-base-content/60">フリーランス歴</span>
+        <span class="text-base-content">{resume.freelanceYears}</span>
       </div>
 
-      <div class="mt-8 space-y-2 text-sm text-surface-600">
+      <div class="mt-8 space-y-2 text-sm text-base-content/60">
         <For each={resume.links}>
           {(link) => (
             <div>
               <span class="font-semibold">{link.label}:</span>{" "}
-              <span class="text-surface-800">{link.url}</span>
+              <span class="text-base-content">{link.url}</span>
             </div>
           )}
         </For>
       </div>
 
       <div class="mt-8 text-sm">
-        <span class="font-semibold text-surface-600">経験ポジション</span>
+        <span class="font-semibold text-base-content/60">経験ポジション</span>
         <ul class="mt-1 space-y-0.5">
           <For each={resume.positions}>
             {(pos) => (
-              <li class="text-surface-800 pl-3 relative before:content-[''] before:absolute before:left-0 before:top-[7px] before:w-1 before:h-1 before:rounded-full before:bg-surface-400">
+              <li class="text-base-content pl-3 relative before:content-[''] before:absolute before:left-0 before:top-[7px] before:w-1 before:h-1 before:rounded-full before:bg-neutral">
                 {pos}
               </li>
             )}
@@ -54,15 +54,15 @@ function SkillTreeFlat(props: { items: SkillItem[]; depth?: number }) {
             <span
               class={
                 depth() === 0
-                  ? "font-semibold text-surface-900 text-sm"
-                  : "text-surface-700 text-xs"
+                  ? "font-semibold text-base-content text-sm"
+                  : "text-base-content/80 text-xs"
               }
             >
               {depth() > 0 && "- "}
               {item.name}
             </span>
             {item.years && (
-              <span class="text-xs text-surface-400 ml-1">({item.years})</span>
+              <span class="text-xs text-base-content/40 ml-1">({item.years})</span>
             )}
             {item.children && (
               <SkillTreeFlat items={item.children} depth={depth() + 1} />
@@ -77,14 +77,14 @@ function SkillTreeFlat(props: { items: SkillItem[]; depth?: number }) {
 function PrintSkills() {
   return (
     <section class="print-section mb-5">
-      <h2 class="text-base font-bold text-surface-900 border-b border-surface-300 pb-1 mb-3">
+      <h2 class="text-base font-bold text-base-content border-b border-base-300 pb-1 mb-3">
         スキル
       </h2>
       <div class="grid grid-cols-2 gap-4">
         <For each={resume.skills}>
           {(cat) => (
             <div>
-              <h3 class="text-sm font-bold text-surface-800 mb-1">
+              <h3 class="text-sm font-bold text-base-content mb-1">
                 {cat.category}
               </h3>
               <SkillTreeFlat items={cat.items} />
@@ -100,12 +100,12 @@ function BulletList(props: { title: string; items: string[] }) {
   return (
     <div>
       <Show when={props.title}>
-        <h3 class="text-sm font-bold text-surface-800 mb-1">{props.title}</h3>
+        <h3 class="text-sm font-bold text-base-content mb-1">{props.title}</h3>
       </Show>
       <ul class="space-y-0.5">
         <For each={props.items}>
           {(item) => (
-            <li class="text-xs text-surface-700 leading-relaxed pl-3 relative before:content-[''] before:absolute before:left-0 before:top-[7px] before:w-1 before:h-1 before:rounded-full before:bg-surface-400">
+            <li class="text-xs text-base-content/80 leading-relaxed pl-3 relative before:content-[''] before:absolute before:left-0 before:top-[7px] before:w-1 before:h-1 before:rounded-full before:bg-neutral">
               {item}
             </li>
           )}
@@ -119,21 +119,21 @@ function PrintValues() {
   return (
     <>
       <section class="print-section mb-5">
-        <h2 class="text-base font-bold text-surface-900 border-b border-surface-300 pb-1 mb-3">
+        <h2 class="text-base font-bold text-base-content border-b border-base-300 pb-1 mb-3">
           価値観
         </h2>
         <BulletList title="コアバリュー" items={resume.values} />
       </section>
 
       <section class="print-section mb-5">
-        <h2 class="text-base font-bold text-surface-900 border-b border-surface-300 pb-1 mb-3">
+        <h2 class="text-base font-bold text-base-content border-b border-base-300 pb-1 mb-3">
           強み
         </h2>
         <BulletList title="" items={resume.strengths} />
       </section>
 
       <section class="print-section mb-5">
-        <h2 class="text-base font-bold text-surface-900 border-b border-surface-300 pb-1 mb-3">
+        <h2 class="text-base font-bold text-base-content border-b border-base-300 pb-1 mb-3">
           今後の方向性
         </h2>
         <div class="grid grid-cols-2 gap-4">
@@ -148,31 +148,31 @@ function PrintValues() {
 function PrintCareer() {
   return (
     <section class="mb-5">
-      <h2 class="text-base font-bold text-surface-900 border-b border-surface-300 pb-1 mb-3">
+      <h2 class="text-base font-bold text-base-content border-b border-base-300 pb-1 mb-3">
         職務経歴
       </h2>
       <div class="space-y-4">
         <For each={resume.career}>
           {(entry) => (
-            <div class="print-career-entry border-l-2 border-surface-300 pl-4 pb-1">
+            <div class="print-career-entry border-l-2 border-neutral pl-4 pb-1">
               <div class="flex items-baseline justify-between gap-2">
-                <h3 class="text-sm font-bold text-surface-900">
+                <h3 class="text-sm font-bold text-base-content">
                   {entry.title}
                 </h3>
-                <span class="text-xs text-surface-900 font-medium whitespace-nowrap">
+                <span class="text-xs text-base-content font-medium whitespace-nowrap">
                   {entry.period}
                 </span>
               </div>
-              <p class="text-xs text-surface-600 mt-0.5">{entry.overview}</p>
+              <p class="text-xs text-base-content/60 mt-0.5">{entry.overview}</p>
 
               <div class="mt-2 grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 text-xs">
-                <span class="font-semibold text-surface-500">ポジション</span>
-                <span class="text-surface-700">
+                <span class="font-semibold text-base-content/50">ポジション</span>
+                <span class="text-base-content/80">
                   {entry.positions.join(", ")}
                 </span>
 
-                <span class="font-semibold text-surface-500">技術</span>
-                <span class="text-surface-700">
+                <span class="font-semibold text-base-content/50">技術</span>
+                <span class="text-base-content/80">
                   {entry.technologies.join(", ")}
                 </span>
               </div>
@@ -181,7 +181,7 @@ function PrintCareer() {
                 <ul class="space-y-0.5">
                   <For each={entry.tasks}>
                     {(task) => (
-                      <li class="text-xs text-surface-700 leading-relaxed pl-3 relative before:content-[''] before:absolute before:left-0 before:top-[7px] before:w-1 before:h-1 before:rounded-full before:bg-surface-400">
+                      <li class="text-xs text-base-content/80 leading-relaxed pl-3 relative before:content-[''] before:absolute before:left-0 before:top-[7px] before:w-1 before:h-1 before:rounded-full before:bg-neutral">
                         {task}
                       </li>
                     )}
@@ -194,7 +194,7 @@ function PrintCareer() {
                   <ul class="space-y-0.5">
                     <For each={entry.notes}>
                       {(note) => (
-                        <li class="text-xs text-surface-500 italic leading-relaxed pl-3 relative before:content-[''] before:absolute before:left-0 before:top-[7px] before:w-1 before:h-1 before:rounded-full before:bg-surface-300">
+                        <li class="text-xs text-base-content/50 italic leading-relaxed pl-3 relative before:content-[''] before:absolute before:left-0 before:top-[7px] before:w-1 before:h-1 before:rounded-full before:bg-base-300">
                           {note}
                         </li>
                       )}
@@ -214,25 +214,25 @@ function PrintInterests() {
   return (
     <>
       <section class="print-section mb-5">
-        <h2 class="text-base font-bold text-surface-900 border-b border-surface-300 pb-1 mb-3">
+        <h2 class="text-base font-bold text-base-content border-b border-base-300 pb-1 mb-3">
           最近触って良かった技術
         </h2>
         <div class="grid grid-cols-2 gap-4">
           <For each={resume.recentTech}>
             {(section) => (
               <div>
-                <h3 class="text-sm font-bold text-surface-800 mb-1">
+                <h3 class="text-sm font-bold text-base-content mb-1">
                   {section.title}
                 </h3>
                 <ul class="space-y-1">
                   <For each={section.items}>
                     {(item) => (
                       <li class="text-xs">
-                        <span class="font-medium text-surface-800">
+                        <span class="font-medium text-base-content">
                           {item.name}
                         </span>
                         <Show when={item.description}>
-                          <span class="text-surface-500">
+                          <span class="text-base-content/50">
                             {" "}
                             - {item.description}
                           </span>
@@ -248,20 +248,20 @@ function PrintInterests() {
       </section>
 
       <section class="print-section mb-5">
-        <h2 class="text-base font-bold text-surface-900 border-b border-surface-300 pb-1 mb-3">
+        <h2 class="text-base font-bold text-base-content border-b border-base-300 pb-1 mb-3">
           関心のある技術
         </h2>
         <div class="grid grid-cols-3 gap-4">
           <For each={resume.interests}>
             {(section) => (
               <div>
-                <h3 class="text-sm font-bold text-surface-800 mb-1">
+                <h3 class="text-sm font-bold text-base-content mb-1">
                   {section.title}
                 </h3>
                 <ul class="space-y-0.5">
                   <For each={section.items}>
                     {(item) => (
-                      <li class="text-xs text-surface-700 leading-relaxed pl-3 relative before:content-[''] before:absolute before:left-0 before:top-[7px] before:w-1 before:h-1 before:rounded-full before:bg-surface-400">
+                      <li class="text-xs text-base-content/80 leading-relaxed pl-3 relative before:content-[''] before:absolute before:left-0 before:top-[7px] before:w-1 before:h-1 before:rounded-full before:bg-neutral">
                         {item.name}
                       </li>
                     )}
@@ -274,13 +274,13 @@ function PrintInterests() {
       </section>
 
       <section class="print-section mb-5">
-        <h2 class="text-base font-bold text-surface-900 border-b border-surface-300 pb-1 mb-3">
+        <h2 class="text-base font-bold text-base-content border-b border-base-300 pb-1 mb-3">
           好き・参考にしている技術書
         </h2>
         <ul class="space-y-0.5">
           <For each={resume.books}>
             {(book) => (
-              <li class="text-xs text-surface-700 leading-relaxed pl-3 relative before:content-[''] before:absolute before:left-0 before:top-[7px] before:w-1 before:h-1 before:rounded-full before:bg-surface-400">
+              <li class="text-xs text-base-content/80 leading-relaxed pl-3 relative before:content-[''] before:absolute before:left-0 before:top-[7px] before:w-1 before:h-1 before:rounded-full before:bg-neutral">
                 {book}
               </li>
             )}
@@ -293,7 +293,7 @@ function PrintInterests() {
 
 export default function PrintResume() {
   return (
-    <div class="max-w-[210mm] mx-auto bg-white text-surface-900 px-8 py-6 min-h-screen print:px-0 print:py-0">
+    <div data-theme="resume-light" class="max-w-[210mm] mx-auto bg-base-100 text-base-content px-8 py-6 min-h-screen print:px-0 print:py-0">
       <PrintHeader />
       <PrintSkills />
       <PrintValues />

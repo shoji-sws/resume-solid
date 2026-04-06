@@ -10,20 +10,22 @@ interface ValuesProps {
 
 function CardList(props: { title: string; items: string[]; accent?: string }) {
   return (
-    <div class="bg-surface-700 rounded-xl p-5">
-      <h3 class={`font-bold mb-3 ${props.accent ?? "text-surface-100"}`}>
-        {props.title}
-      </h3>
-      <ul class="space-y-2">
-        <For each={props.items}>
-          {(item) => (
-            <li class="flex items-start gap-2 text-surface-300 text-sm leading-relaxed">
-              <span class="w-1.5 h-1.5 rounded-full bg-primary-400 mt-2 shrink-0" />
-              {item}
-            </li>
-          )}
-        </For>
-      </ul>
+    <div class="card bg-base-300">
+      <div class="card-body p-5">
+        <h3 class={`font-bold mb-3 ${props.accent ?? "text-base-content"}`}>
+          {props.title}
+        </h3>
+        <ul class="space-y-2">
+          <For each={props.items}>
+            {(item) => (
+              <li class="flex items-start gap-2 text-base-content/70 text-sm leading-relaxed">
+                <span class="w-1.5 h-1.5 rounded-full bg-primary/70 mt-2 shrink-0" />
+                {item}
+              </li>
+            )}
+          </For>
+        </ul>
+      </div>
     </div>
   );
 }
@@ -36,7 +38,7 @@ export default function Values(props: ValuesProps) {
       </Section>
 
       <Section title="強み" id="strengths">
-        <CardList title="" items={props.strengths} accent="text-primary-300" />
+        <CardList title="" items={props.strengths} accent="text-primary" />
       </Section>
 
       <Section title="今後の方向性" id="direction">

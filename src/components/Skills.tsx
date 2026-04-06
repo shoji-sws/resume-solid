@@ -16,19 +16,19 @@ function SkillTree(props: { items: SkillItem[]; depth?: number }) {
           <li>
             <div class="flex items-center gap-2">
               {depth() > 0 && (
-                <span class="w-1.5 h-1.5 rounded-full bg-primary-400 shrink-0" aria-hidden="true" />
+                <span class="w-1.5 h-1.5 rounded-full bg-primary/70 shrink-0" aria-hidden="true" />
               )}
               <span
                 class={
                   depth() === 0
-                    ? "font-semibold text-surface-100"
-                    : "text-surface-400"
+                    ? "font-semibold text-base-content"
+                    : "text-base-content/60"
                 }
               >
                 {item.name}
               </span>
               {item.years && (
-                <span class="text-xs px-2 py-0.5 bg-primary-900/30 text-primary-300 rounded-full hover:bg-primary-900/50 transition-colors">
+                <span class="badge badge-primary badge-sm badge-outline">
                   {item.years}
                 </span>
               )}
@@ -52,7 +52,7 @@ export default function Skills(props: SkillsProps) {
             {(cat) => (
               <Tabs.Trigger
                 value={cat.category}
-                class="px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-surface-700 text-surface-400 hover:bg-surface-600 data-[selected]:bg-primary-600 data-[selected]:text-white data-[selected]:shadow-sm"
+                class="tab data-[selected]:tab-active"
               >
                 {cat.category}
               </Tabs.Trigger>
@@ -62,7 +62,7 @@ export default function Skills(props: SkillsProps) {
 
         <For each={props.skills}>
           {(cat) => (
-            <Tabs.Content value={cat.category} class="bg-surface-700 rounded-xl p-5">
+            <Tabs.Content value={cat.category} class="bg-base-300 rounded-xl p-5">
               <SkillTree items={cat.items} />
             </Tabs.Content>
           )}

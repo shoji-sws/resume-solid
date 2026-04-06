@@ -7,12 +7,12 @@ interface HeaderProps {
 
 export default function Header(props: HeaderProps) {
   return (
-    <header class="bg-gradient-to-br from-surface-800 via-primary-900 to-surface-800 text-white rounded-2xl p-8 md:p-12 shadow-lg">
-      <div class="text-center">
+    <header class="card bg-gradient-to-br from-base-200 via-primary/30 to-base-200 text-white shadow-lg">
+      <div class="card-body text-center">
         <h1 class="text-3xl md:text-5xl font-bold mb-2 tracking-tight">
           {props.data.name}
         </h1>
-        <p class="text-surface-300 text-lg md:text-xl mb-6">
+        <p class="text-base-content/60 text-lg md:text-xl mb-6">
           {props.data.nameEn}
         </p>
 
@@ -23,7 +23,7 @@ export default function Header(props: HeaderProps) {
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="inline-flex items-center gap-1.5 px-4 py-2 bg-white/10 hover:bg-white/20 hover:scale-105 rounded-lg text-sm font-medium transition-all backdrop-blur-sm"
+                class="btn btn-ghost btn-sm backdrop-blur-sm"
               >
                 {link.label}
                 <svg
@@ -46,10 +46,10 @@ export default function Header(props: HeaderProps) {
         </div>
 
         <div class="flex flex-wrap justify-center gap-3 mb-6 text-sm">
-          <span class="px-3 py-1 bg-primary-500/20 rounded-full">
+          <span class="badge badge-primary badge-outline">
             プログラマー歴: {props.data.experienceYears}
           </span>
-          <span class="px-3 py-1 bg-primary-500/20 rounded-full">
+          <span class="badge badge-primary badge-outline">
             フリーランス歴: {props.data.freelanceYears}
           </span>
         </div>
@@ -57,7 +57,7 @@ export default function Header(props: HeaderProps) {
         <div class="flex flex-wrap justify-center gap-2">
           <For each={props.data.positions}>
             {(position) => (
-              <span class="px-3 py-1.5 bg-primary-600 rounded-lg text-sm font-medium">
+              <span class="badge badge-primary">
                 {position}
               </span>
             )}
