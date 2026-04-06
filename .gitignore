@@ -1,0 +1,9 @@
+node_modules
+dist
+
+# AI/Editor tool configs
+.cursor
+.claude
+.codex
+.agent
+.clinerules

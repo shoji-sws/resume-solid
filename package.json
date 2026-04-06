@@ -1,0 +1,29 @@
+{
+  "name": "resume-solid",
+  "version": "0.0.1",
+  "description": "職務経歴書 - SolidJS Resume Website",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "license": "MIT",
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.0.0",
+    "tailwindcss": "^4.0.0",
+    "typescript": "^5.7.0",
+    "vite": "^6.0.0",
+    "vite-plugin-solid": "^2.11.0"
+  },
+  "dependencies": {
+    "@ark-ui/solid": "^5.0.0",
+    "@kobalte/core": "^0.13.0",
+    "@solidjs/router": "^0.16.1",
+    "solid-js": "^1.9.0"
+  }
+}
