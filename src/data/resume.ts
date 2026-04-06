@@ -274,7 +274,7 @@ export const resume: ResumeData = {
       title: "アーキテクチャ",
       items: [
         { name: "3factor" },
-        { name: "Supabase" },
+        { name: "Cloudflare" },
         { name: "DDD" },
         { name: "Edge Computing" },
       ],
