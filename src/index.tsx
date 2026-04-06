@@ -15,7 +15,7 @@ if (!root) {
 
 render(
   () => (
-    <Router>
+    <Router base={import.meta.env.BASE_URL}>
       <Route path="/" component={App} />
       <Route path="/print" component={PrintResume} />
     </Router>
