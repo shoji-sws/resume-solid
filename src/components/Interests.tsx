@@ -52,15 +52,16 @@ export default function Interests(props: InterestsProps) {
                   <h3 class="font-bold text-base-content mb-3">
                     {section.title}
                   </h3>
-                  <div class="flex flex-wrap gap-1.5">
+                  <ul class="space-y-1.5">
                     <For each={section.items}>
                       {(item) => (
-                        <span class="badge badge-neutral badge-sm">
+                        <li class="flex items-start gap-2 text-sm text-base-content/85">
+                          <span class="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" aria-hidden="true" />
                           {item.name}
-                        </span>
+                        </li>
                       )}
                     </For>
-                  </div>
+                  </ul>
                 </div>
               </div>
             )}
