@@ -80,10 +80,11 @@ body {
     box-shadow: none !important;
   }
 
-  .career-detail-content {
-    max-height: none !important;
-    opacity: 1 !important;
+  .collapsible-content {
+    animation: none !important;
+    height: auto !important;
     overflow: visible !important;
+    display: block !important;
   }
 }
 
@@ -132,9 +133,36 @@ body {
   }
 }
 
-/* Career expand/collapse animation */
-.career-detail-content {
-  transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+/* Kobalte Collapsible animation */
+.collapsible-content {
+  overflow: hidden;
+  animation: collapsibleSlideUp 300ms ease-in-out;
+}
+
+.collapsible-content[data-expanded] {
+  animation: collapsibleSlideDown 300ms ease-in-out;
+}
+
+@keyframes collapsibleSlideDown {
+  from {
+    height: 0;
+    opacity: 0;
+  }
+  to {
+    height: var(--kb-collapsible-content-height);
+    opacity: 1;
+  }
+}
+
+@keyframes collapsibleSlideUp {
+  from {
+    height: var(--kb-collapsible-content-height);
+    opacity: 1;
+  }
+  to {
+    height: 0;
+    opacity: 0;
+  }
 }
 
 /* Overflow wrap for tech tags */

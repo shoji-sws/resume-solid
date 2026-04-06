@@ -3,9 +3,12 @@ import { For, createSignal, onMount, onCleanup } from "solid-js";
 const sections = [
   { id: "skills", label: "スキル" },
   { id: "values", label: "価値観" },
+  { id: "strengths", label: "強み" },
+  { id: "direction", label: "今後の方向性" },
   { id: "career", label: "職務経歴" },
   { id: "recent-tech", label: "最近の技術" },
   { id: "interests", label: "関心" },
+  { id: "books", label: "技術書" },
 ] as const;
 
 export default function Nav() {

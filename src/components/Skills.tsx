@@ -1,4 +1,5 @@
-import { For, createSignal } from "solid-js";
+import { For } from "solid-js";
+import { Tabs } from "@kobalte/core/tabs";
 import type { SkillCategory, SkillItem } from "../data/resume";
 import Section from "./Section";
 
@@ -43,74 +44,30 @@ function SkillTree(props: { items: SkillItem[]; depth?: number }) {
 }
 
 export default function Skills(props: SkillsProps) {
-  const [activeTab, setActiveTab] = createSignal(0);
-
-  const handleTabKeyDown = (e: KeyboardEvent) => {
-    const count = props.skills.length;
-    if (e.key === "ArrowRight" || e.key === "ArrowDown") {
-      e.preventDefault();
-      const next = (activeTab() + 1) % count;
-      setActiveTab(next);
-      (e.currentTarget as HTMLElement)
-        .parentElement?.querySelectorAll<HTMLButtonElement>('[role="tab"]')
-        [next]?.focus();
-    } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
-      e.preventDefault();
-      const prev = (activeTab() - 1 + count) % count;
-      setActiveTab(prev);
-      (e.currentTarget as HTMLElement)
-        .parentElement?.querySelectorAll<HTMLButtonElement>('[role="tab"]')
-        [prev]?.focus();
-    } else if (e.key === "Home") {
-      e.preventDefault();
-      setActiveTab(0);
-      (e.currentTarget as HTMLElement)
-        .parentElement?.querySelectorAll<HTMLButtonElement>('[role="tab"]')
-        [0]?.focus();
-    } else if (e.key === "End") {
-      e.preventDefault();
-      setActiveTab(count - 1);
-      (e.currentTarget as HTMLElement)
-        .parentElement?.querySelectorAll<HTMLButtonElement>('[role="tab"]')
-        [count - 1]?.focus();
-    }
-  };
-
   return (
     <Section title="スキル" id="skills">
-      {/* Tab buttons */}
-      <div class="flex flex-wrap gap-2 mb-6" role="tablist" aria-label="スキルカテゴリ">
+      <Tabs defaultValue={props.skills[0]?.category}>
+        <Tabs.List class="flex flex-wrap gap-2 mb-6" aria-label="スキルカテゴリ">
+          <For each={props.skills}>
+            {(cat) => (
+              <Tabs.Trigger
+                value={cat.category}
+                class="px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-surface-700 text-surface-400 hover:bg-surface-600 data-[selected]:bg-primary-600 data-[selected]:text-white data-[selected]:shadow-sm"
+              >
+                {cat.category}
+              </Tabs.Trigger>
+            )}
+          </For>
+        </Tabs.List>
+
         <For each={props.skills}>
-          {(cat, i) => (
-            <button
-              role="tab"
-              aria-selected={activeTab() === i()}
-              aria-controls={`skill-panel-${i()}`}
-              id={`skill-tab-${i()}`}
-              tabIndex={activeTab() === i() ? 0 : -1}
-              class={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                activeTab() === i()
-                  ? "bg-primary-600 text-white shadow-sm"
-                  : "bg-surface-700 text-surface-400 hover:bg-surface-600"
-              }`}
-              onClick={() => setActiveTab(i())}
-              onKeyDown={handleTabKeyDown}
-            >
-              {cat.category}
-            </button>
+          {(cat) => (
+            <Tabs.Content value={cat.category} class="bg-surface-700 rounded-xl p-5">
+              <SkillTree items={cat.items} />
+            </Tabs.Content>
           )}
         </For>
-      </div>
-
-      {/* Tab content */}
-      <div
-        id={`skill-panel-${activeTab()}`}
-        role="tabpanel"
-        aria-labelledby={`skill-tab-${activeTab()}`}
-        class="bg-surface-700 rounded-xl p-5"
-      >
-        <SkillTree items={props.skills[activeTab()]?.items ?? []} />
-      </div>
+      </Tabs>
     </Section>
   );
 }
