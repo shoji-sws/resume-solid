@@ -59,14 +59,16 @@ export const resume: ResumeData = {
     { label: "X", url: "https://x.com/subaru_shoji" },
     { label: "GitHub", url: "https://github.com/subaru-shoji" },
   ],
-  experienceYears: "2014年〜（12年目）",
-  freelanceYears: "2016年〜（10年目）",
+  experienceYears: "2014年〜",
+  freelanceYears: "2016年〜",
   positions: [
+    "フルスタックエンジニア（フロント / API / DB / インフラ）",
+    "サーバーサイド / API エンジニア",
+    "インフラ / DB 設計",
+    "Web アプリケーションエンジニア",
+    "モバイルエンジニア(Flutter)",
     "テックリード",
     "アーキテクト",
-    "フロントエンドエンジニア",
-    "サーバーサイドエンジニア",
-    "モバイルエンジニア（Flutter）",
   ],
   skills: [
     {
@@ -74,18 +76,96 @@ export const resume: ResumeData = {
       items: [
         {
           name: "TypeScript",
-          years: "6年",
+          years: "7年",
           children: [
             {
               name: "React",
               children: [
-                { name: "React Router" },
-                { name: "Next.js" },
-                { name: "Material UI" },
+                {
+                  name: "React Router",
+                },
+                {
+                  name: "Next.js",
+                },
+                {
+                  name: "tailwind",
+                },
               ],
             },
-            { name: "SolidJS", years: "趣味で2ヶ月" },
-            { name: "Angular" },
+            {
+              name: "SolidJS",
+            },
+            {
+              name: "Angular",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      category: "サーバーサイド",
+      items: [
+        {
+          name: "Ruby",
+          years: "4年",
+          children: [
+            {
+              name: "Ruby on Rails",
+            },
+            {
+              name: "RBS",
+            },
+          ],
+        },
+        {
+          name: "OpenAPI",
+          years: "2年",
+          children: [
+            {
+              name: "TypeSpec",
+            },
+          ],
+        },
+        {
+          name: "Golang",
+          years: "2年",
+          children: [
+            {
+              name: "Echo",
+            },
+            {
+              name: "Gin",
+            },
+          ],
+        },
+        {
+          name: "Python",
+          years: "2年",
+          children: [
+            {
+              name: "Flask",
+            },
+          ],
+        },
+        {
+          name: "Kotlin",
+          years: "0.5年",
+          children: [
+            {
+              name: "Spring Boot",
+            },
+            {
+              name: "Gauge",
+            },
+          ],
+        },
+        {
+          name: "Clojure",
+          years: "0.5年",
+          children: [
+            {
+              name: "duct",
+            },
           ],
         },
       ],
@@ -99,106 +179,155 @@ export const resume: ResumeData = {
           children: [
             {
               name: "Flutter",
-              children: [{ name: "Riverpod" }, { name: "BLoC" }],
+              children: [
+                {
+                  name: "Riverpod",
+                },
+                {
+                  name: "BLoC",
+                },
+              ],
             },
           ],
         },
       ],
     },
     {
-      category: "サーバーサイド",
+      category: "インフラ / DB",
       items: [
-        {
-          name: "Python",
-          years: "2年",
-          children: [{ name: "Flask" }],
-        },
-        {
-          name: "Golang",
-          years: "2年",
-          children: [{ name: "Echo" }, { name: "Gin" }],
-        },
-        {
-          name: "Ruby",
-          years: "4年",
-          children: [{ name: "Ruby on Rails" }, { name: "RBS" }],
-        },
-        {
-          name: "Clojure",
-          years: "0.5年",
-          children: [{ name: "duct" }],
-        },
-        {
-          name: "Kotlin",
-          years: "0.5年",
-          children: [{ name: "Spring Boot" }, { name: "Gauge" }],
-        },
-      ],
-    },
-    {
-      category: "インフラ",
-      items: [
-        {
-          name: "Linux",
-          years: "9年",
-          children: [{ name: "ArchLinux" }, { name: "Debian" }],
-        },
         {
           name: "AWS",
           years: "3.5年",
           children: [
-            { name: "Amplify" },
-            { name: "Lambda" },
-            { name: "Step Functions" },
-            { name: "ECS" },
+            {
+              name: "Amplify",
+            },
+            {
+              name: "Lambda",
+            },
+            {
+              name: "Step Functions",
+            },
+            {
+              name: "ECS",
+            },
+            {
+              name: "Fargate",
+            },
+            {
+              name: "S3",
+            },
+            {
+              name: "CDK",
+            },
           ],
         },
-        { name: "GCP", years: "1年" },
-        { name: "Firebase", years: "2年" },
         {
-          name: "ShellScript",
-          years: "8年",
-          children: [{ name: "bash" }, { name: "fish" }],
+          name: "Docker",
+          years: "4年",
         },
         {
           name: "DB",
           children: [
-            { name: "MySQL" },
-            { name: "PostgreSQL" },
-            { name: "Oracle", years: "2年" },
+            {
+              name: "MySQL",
+            },
+            {
+              name: "PostgreSQL",
+            },
+            {
+              name: "Oracle",
+              years: "2年",
+            },
+          ],
+        },
+        {
+          name: "Linux",
+          years: "9年",
+          children: [
+            {
+              name: "ArchLinux",
+            },
+            {
+              name: "Debian",
+            },
+          ],
+        },
+        {
+          name: "ShellScript",
+          years: "8年",
+          children: [
+            {
+              name: "bash",
+            },
+            {
+              name: "fish",
+            },
+          ],
+        },
+        {
+          name: "GCP",
+          years: "1年",
+          children: [
+            {
+              name: "Firebase",
+              years: "2年",
+            },
           ],
         },
         {
           name: "Kubernetes",
           years: "0.5年",
-          children: [{ name: "Skaffold" }],
+          children: [
+            {
+              name: "Skaffold",
+            },
+          ],
         },
-        { name: "Docker", years: "4年" },
       ],
     },
     {
-      category: "AI Tool(2年)",
+      category: "AI 開発支援(2 年)",
       items: [
-        { name: "Claude Code" },
-        { name: "Codex" },
-        { name: "Cline" },
-        { name: "Cursor" },
-        { name: "antigravity" },
-        { name: "openspec" },
+        {
+          name: "Claude Code",
+          children: [
+            {
+              name: "既存コードの調査・実装方針の検討",
+            },
+            {
+              name: "スキル・メモリを活用した定型業務の自動化・定期実行",
+            },
+          ],
+        },
+        {
+          name: "Codex",
+        },
+        {
+          name: "Cursor",
+        },
+        {
+          name: "Cline",
+        },
+        {
+          name: "antigravity",
+        },
+        {
+          name: "openspec",
+        },
       ],
     },
     {
       category: "その他",
       items: [
         {
-          name: "OpenAPI",
-          years: "2年",
-          children: [{ name: "TypeSpec" }],
-        },
-        {
           name: "Neovim",
           years: "2年",
-          children: [{ name: "Lua" }],
+          children: [
+            {
+              name: "Lua",
+            },
+          ],
         },
       ],
     },
@@ -218,30 +347,41 @@ export const resume: ResumeData = {
     "単純な方法をとる",
   ],
   strengths: [
-    "現場を改善した経験が多い（DDD, TDD, BDD, Clean Architecture導入）",
+    "プロダクト横断で設計・実装できる（画面、API、DB、外部サービス連携、インフラ）",
+    "Web・モバイル・サーバーサイドの境界を意識し、変更しやすい構造を作れる",
+    "OpenAPIや自動生成を活用して、クライアントとサーバーの整合性を取りやすくできる",
+    "現場を改善した経験が多い（DDD、TDD、BDD、Clean Architecture、宣言的プログラミングの導入）",
+    "DDDやBDDを、チーム間の認識合わせや変更容易性のために導入できる",
     "リファクタリングが得意（複雑なシステムの概念整理、計画的リファクタリング）",
     "開発チーム全体への意見ができる（曖昧な問題の言語化、非効率な開発方法の改善提案）",
+    "AIによる実装・テストコード生成を活用し、設計判断とレビューは人間側で担う",
+    "AIが一貫したコードを書けるように、ドキュメント・テスト・アーキテクチャを整備できる",
+    "大量の既存コードをClaude Codeで調査し、現状の実装を踏まえて実装方針を決定できる",
+    "スキルやメモリを活用し、繰り返し発生する定型業務を自動化・定期実行できる",
     "幅広く興味を持って、実際に試してみる",
   ],
   growthAreas: [
-    "大規模で複雑なシステム（複数のマイクロサービス群）でチューニングした経験はあまりない",
-    "理論的にLLMのチューニングをしたことはあまりない",
+    "クラウド系の知見（CloudflareやAWS等）",
+    "LLM や AI エージェントを活用したプロダクト開発、開発プロセス改善、チームへの導入",
   ],
   careerDirection: [
     "AIやLLMに興味があるので、その分野にも進出していきたい",
     "最近は趣味でAIに関する様々な実験や検証を行っている",
-    "Mastraを使ったAIエージェントの開発",
     "ChatGPT、Gemini、Grokなど複数のLLMサービスを契約し、使い心地の比較検証",
-    "openclawで個人用のエージェント作成",
+    "hermes agentで個人用のエージェントや、エージェントから呼べる個人用スキルを作成",
   ],
   recentTech: [
     {
-      title: "LLM",
+      title: "AI / LLM",
       items: [
-        { name: "AIエージェント", description: "Claude Code, Codex, antigravity" },
+        {
+          name: "AIエージェント",
+          description: "Claude Code, Codex, grok, opencode, browser use",
+        },
         {
           name: "openspec",
-          description: "仕様駆動開発用のフレームワーク。実装指示と理由をドキュメント化",
+          description:
+            "仕様駆動開発用のフレームワーク。実装指示と理由をドキュメント化",
         },
         {
           name: "assistant-ui",
@@ -250,8 +390,13 @@ export const resume: ResumeData = {
       ],
     },
     {
-      title: "フロントエンド",
+      title: "プロダクト開発効率化",
       items: [
+        {
+          name: "OpenAPI / TypeSpec",
+          description:
+            "クライアントとサーバーの整合性を保ち、コードやドキュメントを自動生成しやすい",
+        },
         {
           name: "SolidJS",
           description:
@@ -262,7 +407,7 @@ export const resume: ResumeData = {
   ],
   interests: [
     {
-      title: "AI",
+      title: "AI / LLM",
       items: [
         { name: "LLMエージェントによる文章作成" },
         { name: "character.aiのようなキャラクターチャット" },
@@ -271,7 +416,7 @@ export const resume: ResumeData = {
       ],
     },
     {
-      title: "アーキテクチャ",
+      title: "アーキテクチャ / インフラ",
       items: [
         { name: "3factor" },
         { name: "Cloudflare" },
@@ -280,12 +425,8 @@ export const resume: ResumeData = {
       ],
     },
     {
-      title: "フロントエンド",
-      items: [
-        { name: "ui-ux-pro-max-skill" },
-        { name: "playwright-agent" },
-        { name: "SolidJS" },
-      ],
+      title: "プロダクト開発効率化",
+      items: [{ name: "ui-ux-pro-max-skill" }, { name: "playwright-agent" }],
     },
   ],
   books: [
@@ -297,11 +438,44 @@ export const resume: ResumeData = {
   ],
   career: [
     {
-      title: "AIエージェント・アプリ開発",
-      period: "2025-06 〜 2026-03",
+      title: "転職支援サービスの開発",
+      period: "2025-07 〜 2026-09",
       overview:
-        "AIで文字起こしや画像編集等の様々な作業を行うアプリで主にフロントエンド（Next.js）を担当。機能改修では一部Step Functionsも修正。",
-      positions: ["フロントエンドエンジニア", "サーバーサイドエンジニア（Step Functions）"],
+        "転職エージェントの一覧取得や面談予約などの機能を持つ転職支援サービスで、実装を中心に担当。大量の既存コードをClaude Codeで調査し、実装方針を決定しながら開発を進めた。",
+      positions: ["Web アプリケーションエンジニア"],
+      phases: [
+        "既存実装の調査・実装方針の検討",
+        "開発（実装中心）",
+        "定型業務の自動化",
+      ],
+      technologies: [
+        "Ruby on Rails",
+        "PostgreSQL",
+        "Next.js",
+        "Nuxt",
+        "Claude Code",
+      ],
+      tasks: [
+        "転職エージェントの一覧取得や面談予約などに関する機能の実装",
+        "Claude Codeを用いた既存コードの調査と、調査結果を踏まえた実装方針の決定",
+        "Claude Codeのスキルやメモリを活用した定型業務の自動化・定期実行の整備",
+      ],
+      notes: [
+        "既存コードの現状を理解した上で実装方針を決めることを重視",
+        "定型業務をスキルやメモリで再利用できる形に整理し、手作業を削減",
+      ],
+    },
+    {
+      title: "AIエージェント・アプリ開発",
+      period: "2025-06 〜 2026-06",
+      overview:
+        "AIで文字起こしや画像編集等の様々な作業を行うアプリで、フロントエンド（Next.js）からBFF、DBスキーマ設計、AWSインフラ構築までを一貫して担当。機能改修では、Step Functions によるワークフローも修正。",
+      positions: [
+        "フルスタックエンジニア（フロント / BFF / DB / インフラ）",
+        "BFF / DB スキーマ設計",
+        "インフラ構築・改修（AWS CDK / Step Functions）",
+        "Web アプリケーションエンジニア",
+      ],
       phases: ["開発", "インフラ", "テスト"],
       technologies: [
         "Next.js",
@@ -329,8 +503,13 @@ export const resume: ResumeData = {
     {
       title: "API提供サービスの保守・新規開発",
       period: "2024-10 〜 2025-05",
-      overview: "API提供サービスの保守・新規開発を行った",
-      positions: ["フロントエンドエンジニア", "サーバーサイドエンジニア"],
+      overview:
+        "API 提供サービスで、既存APIの保守、新規API設計、DBスキーマ設計、React画面までを横断して開発した",
+      positions: [
+        "Web アプリケーションエンジニア",
+        "API 開発 / 保守",
+        "DB スキーマ設計",
+      ],
       phases: ["開発", "テスト"],
       technologies: [
         "React",
@@ -342,7 +521,9 @@ export const resume: ResumeData = {
       ],
       tasks: [
         "既存API(Express, Spring Boot)のバグ修正、パフォーマンス改善、機能追加",
+        "定期的なライブラリのアップデートと脆弱性対応",
         "フロントエンド(React)部分の改修",
+        "React・React Routerを用いた新規画面の開発",
         "新規APIエンドポイントの設計・開発",
         "Drizzle ORMを利用したDBスキーマ設計とマイグレーション",
       ],
@@ -350,8 +531,13 @@ export const resume: ResumeData = {
     {
       title: "配車管理サービスの改修（サーバー側）",
       period: "2023-10 〜 2024-06",
-      overview: "配送業者向けの配車管理サービスのサーバー側の機能改修",
-      positions: ["フロントエンドエンジニア", "サーバーサイドエンジニア"],
+      overview:
+        "配送業者向けの配車管理サービスで、Rails、APIスキーマ、DB、AWS連携を含むサーバー側の機能改修を担当",
+      positions: [
+        "サーバーサイドエンジニア",
+        "API / スキーマ設計",
+        "チーム横断の仕様整理",
+      ],
       phases: ["開発", "テスト"],
       technologies: [
         "Ruby on Rails",
@@ -366,7 +552,7 @@ export const resume: ResumeData = {
         "Docker",
       ],
       tasks: [
-        "サービスの改修全般を担当",
+        "Rails、MySQL、AWS、OpenAPI / TypeSpecを用いたサービス改修全般を担当",
         "DDDやBDDの導入（ユビキタス言語の定義、ドメイン設計）",
         "Railsの機能を活用したDDD導入方法の考案",
         "BDDによるフロント・サーバー・QA・デザイン間の振る舞い共有",
@@ -375,8 +561,13 @@ export const resume: ResumeData = {
     {
       title: "配車管理サービスの改修（モバイル側）",
       period: "2023-02 〜 2023-09",
-      overview: "ジオフェンシング機能の実装",
-      positions: ["モバイルエンジニア", "サーバーサイド（Firebase/Cloud Functions）"],
+      overview:
+        "ジオフェンシング機能の実装と、Firebase / Cloud Functions / Google Maps API 連携の改善を担当",
+      positions: [
+        "モバイルエンジニア",
+        "サーバーレス連携（Firebase / Cloud Functions）",
+        "外部API連携（Google Maps API）",
+      ],
       phases: ["アーキテクチャ設計", "開発", "テスト"],
       technologies: [
         "Flutter",
@@ -399,8 +590,12 @@ export const resume: ResumeData = {
     {
       title: "教材配信サービスの改修",
       period: "2022-08 〜 2022-12",
-      overview: "学校や企業へ教材を配信するサービスの改修",
-      positions: ["フロントエンドエンジニア"],
+      overview:
+        "学校や企業へ教材を配信するサービスで、React画面、OpenAPI自動生成、Rails / MySQL / Docker 連携を意識した改修を担当",
+      positions: [
+        "Web アプリケーションエンジニア",
+        "クライアントとAPI境界の改善",
+      ],
       phases: ["アーキテクチャ設計", "開発", "テスト"],
       technologies: [
         "React",
@@ -410,6 +605,8 @@ export const resume: ResumeData = {
         "Storybook",
         "Material UI",
         "Redux Toolkit",
+        "Rails（閲覧のみ）",
+        "MySQL",
         "esbuild",
         "Docker",
       ],
@@ -424,8 +621,13 @@ export const resume: ResumeData = {
       title: "不動産建築の工程管理チャットアプリ",
       period: "2022-01 〜 2022-06",
       overview:
-        "不動産建築のため、施工主や施主がコミュニケーションできるチャットアプリ（Web, Android, iOS）",
-      positions: ["テックリード", "フロントエンドエンジニア", "モバイルエンジニア"],
+        "不動産建築のため、施工主や施主がコミュニケーションできるチャットアプリ。Web、Android、iOS、Firebase、Firestore、OpenAPI連携を含む横断的な設計・実装を担当。",
+      positions: [
+        "テックリード",
+        "Web / モバイルエンジニア",
+        "Firebase / Firestore スキーマ設計",
+        "API 連携設計",
+      ],
       phases: ["要件定義", "アーキテクチャ設計", "開発", "テスト"],
       technologies: [
         "Flutter",
@@ -472,7 +674,7 @@ export const resume: ResumeData = {
       period: "2021-06 〜 2021-09",
       overview:
         "アンケート付きの動画を配信するサービス。動画再生中に一定時間でアンケートが出現",
-      positions: ["フロントエンドエンジニア"],
+      positions: ["Web アプリケーションエンジニア（Rails / フロントエンド）"],
       phases: ["アーキテクチャ設計（フロントエンド）", "開発"],
       technologies: ["Ruby on Rails", "Preact (TypeScript)", "MySQL", "Docker"],
       tasks: [
@@ -501,7 +703,12 @@ export const resume: ResumeData = {
       overview: "B2Bの動画配信サービスの機能ごとのMicroservice作成",
       positions: ["サーバーサイドエンジニア"],
       phases: ["開発", "テスト"],
-      technologies: ["Golang (Gin)", "Python (Flask)", "React", "Ruby on Rails"],
+      technologies: [
+        "Golang (Gin)",
+        "Python (Flask)",
+        "React",
+        "Ruby on Rails",
+      ],
       tasks: [
         "ストリーミング用に変換した動画のマニフェスト変換Microservice作成",
         "外部動画変換サービスSDKの自社用ラッパーライブラリ作成",
