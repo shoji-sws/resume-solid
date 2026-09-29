@@ -44,6 +44,52 @@ function PrintHeader() {
   );
 }
 
+function PrintSummary() {
+  return (
+    <>
+      <section class="print-section mb-5">
+        <h2 class="text-base font-bold text-base-content border-b border-base-300 pb-1 mb-3">
+          サマリ
+        </h2>
+        <div class="space-y-1 mb-3">
+          <For each={resume.summary}>
+            {(paragraph) => (
+              <p class="text-xs text-base-content/80 leading-relaxed">{paragraph}</p>
+            )}
+          </For>
+        </div>
+        <h3 class="text-sm font-bold text-base-content mb-1">主な実績</h3>
+        <ul class="space-y-0.5">
+          <For each={resume.achievements}>
+            {(achievement) => (
+              <li class="text-xs text-base-content/80 leading-relaxed pl-3 relative before:content-[''] before:absolute before:left-0 before:top-[7px] before:w-1 before:h-1 before:rounded-full before:bg-neutral">
+                <span class="font-semibold text-base-content">{achievement.title}:</span>{" "}
+                {achievement.description}
+              </li>
+            )}
+          </For>
+        </ul>
+      </section>
+
+      <section class="print-section mb-5">
+        <h2 class="text-base font-bold text-base-content border-b border-base-300 pb-1 mb-3">
+          稼働条件
+        </h2>
+        <div class="grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 text-xs">
+          <For each={resume.workConditions}>
+            {(condition) => (
+              <>
+                <span class="font-semibold text-base-content/50">{condition.label}</span>
+                <span class="text-base-content/80">{condition.value}</span>
+              </>
+            )}
+          </For>
+        </div>
+      </section>
+    </>
+  );
+}
+
 function SkillTreeFlat(props: { items: SkillItem[]; depth?: number }) {
   const depth = () => props.depth ?? 0;
   return (
@@ -171,6 +217,11 @@ function PrintCareer() {
                   {entry.positions.join(", ")}
                 </span>
 
+                <Show when={entry.teamSize}>
+                  <span class="font-semibold text-base-content/50">チーム規模</span>
+                  <span class="text-base-content/80">{entry.teamSize}</span>
+                </Show>
+
                 <span class="font-semibold text-base-content/50">技術</span>
                 <span class="text-base-content/80">
                   {entry.technologies.join(", ")}
@@ -295,6 +346,7 @@ export default function PrintResume() {
   return (
     <div data-theme="light" class="max-w-[210mm] mx-auto bg-base-100 text-base-content px-8 py-6 min-h-screen print:px-0 print:py-0">
       <PrintHeader />
+      <PrintSummary />
       <PrintSkills />
       <PrintValues />
       <PrintCareer />

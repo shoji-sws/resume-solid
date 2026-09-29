@@ -67,6 +67,16 @@ function CareerCard(props: { entry: CareerEntry; index: number }) {
                 </div>
               </div>
 
+              {/* Team size */}
+              <Show when={props.entry.teamSize}>
+                <div>
+                  <h4 class="text-sm font-bold text-base-content/70 mb-2">
+                    チーム規模
+                  </h4>
+                  <p class="text-sm text-base-content/85">{props.entry.teamSize}</p>
+                </div>
+              </Show>
+
               {/* Technologies */}
               <div>
                 <h4 class="text-sm font-bold text-base-content/70 mb-2">
