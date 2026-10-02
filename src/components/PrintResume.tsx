@@ -41,6 +41,30 @@ function PrintHeader() {
   );
 }
 
+function PrintSummary() {
+  return (
+    <>
+      <section class="print-content-section mb-5">
+        <h2>サマリ</h2>
+        <div class="text-xs leading-relaxed mb-3 space-y-1">
+          <For each={resume.summary}>{(paragraph) => <p>{paragraph}</p>}</For>
+        </div>
+        <DetailTable label="主な実績" rows={resume.achievements.map((achievement) => ({
+          label: achievement.title,
+          content: achievement.description,
+        }))} />
+      </section>
+      <section class="print-content-section mb-5">
+        <h2>稼働条件</h2>
+        <DetailTable label="稼働条件" rows={resume.workConditions.map((condition) => ({
+          label: condition.label,
+          content: condition.value,
+        }))} />
+      </section>
+    </>
+  );
+}
+
 function formatRelatedSkill(item: SkillItem): string {
   const years = item.years ? `（${item.years}）` : "";
   const children = item.children?.length
@@ -115,6 +139,7 @@ function PrintCareer() {
               { label: "期間", content: entry.period },
               { label: "概要", content: entry.overview },
               { label: "ポジション", content: <PrintList items={entry.positions} /> },
+              ...(entry.teamSize ? [{ label: "チーム規模", content: entry.teamSize }] : []),
               { label: "担当工程", content: entry.phases.join("、") },
               { label: "使用技術", content: entry.technologies.join("、") },
               { label: "担当業務", content: <PrintList items={entry.tasks} /> },
@@ -172,6 +197,7 @@ export default function PrintResume() {
   return (
     <div data-theme="light" class="max-w-[210mm] mx-auto bg-base-100 text-base-content px-8 py-6 min-h-screen print:px-0 print:py-0">
       <PrintHeader />
+      <PrintSummary />
       <PrintSkills />
       <PrintValues />
       <PrintCareer />

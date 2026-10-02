@@ -1,6 +1,8 @@
 import { For, createSignal, onMount, onCleanup } from "solid-js";
 
 const sections = [
+  { id: "summary", label: "サマリ" },
+  { id: "conditions", label: "稼働条件" },
   { id: "skills", label: "スキル" },
   { id: "values", label: "価値観" },
   { id: "strengths", label: "強み" },

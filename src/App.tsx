@@ -1,6 +1,7 @@
 import { resume } from "./data/resume";
 import Header from "./components/Header";
 import Nav from "./components/Nav";
+import Summary from "./components/Summary";
 import Skills from "./components/Skills";
 import Values from "./components/Values";
 import Career from "./components/Career";
@@ -12,6 +13,11 @@ export default function App() {
       <Nav />
       <main class="max-w-3xl mx-auto px-4 py-8 md:py-12 space-y-8 md:space-y-10">
         <Header data={resume} />
+        <Summary
+          summary={resume.summary}
+          achievements={resume.achievements}
+          workConditions={resume.workConditions}
+        />
         <Skills skills={resume.skills} />
         <Values
           values={resume.values}
