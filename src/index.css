@@ -104,6 +104,46 @@ body {
   break-after: avoid;
 }
 
+.print-detail-table tbody th {
+  background: #f3f4f6;
+}
+
+.print-item-list {
+  margin: 0;
+  padding-left: 1.2em;
+  list-style: disc;
+}
+
+.print-item-list li + li {
+  margin-top: 4px;
+}
+
+.print-content-section > h2 {
+  font-size: 16px;
+  font-weight: 700;
+  border-bottom: 1px solid #9ca3af;
+  padding-bottom: 4px;
+  margin-bottom: 12px;
+  break-after: avoid;
+}
+
+.print-career-table-entry {
+  margin-bottom: 20px;
+}
+
+.print-career-table-entry > h3 {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  break-after: avoid;
+}
+
+.print-profile a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 @page {
   size: A4;
   margin: 15mm 12mm;
@@ -135,6 +175,10 @@ body {
 
   .print-career-entry {
     break-inside: avoid;
+  }
+
+  header.print-profile {
+    background: white !important;
   }
 
   header {

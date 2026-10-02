@@ -1,45 +1,42 @@
 import { For, Show } from "solid-js";
 import { resume } from "../data/resume";
-import type { SkillItem } from "../data/resume";
+import type { JSX } from "solid-js";
+import type { SkillItem, InterestSection } from "../data/resume";
+
+function DetailTable(props: {
+  label: string;
+  rows: { label: string; content: JSX.Element }[];
+}) {
+  return (
+    <table class="print-skills-table print-detail-table" aria-label={props.label}>
+      <colgroup><col style={{ width: "23%" }} /><col style={{ width: "77%" }} /></colgroup>
+      <tbody>
+        <For each={props.rows}>
+          {(row) => <tr><th scope="row">{row.label}</th><td>{row.content}</td></tr>}
+        </For>
+      </tbody>
+    </table>
+  );
+}
+
+function PrintList(props: { items: string[] }) {
+  return <ul class="print-item-list"><For each={props.items}>{(item) => <li>{item}</li>}</For></ul>;
+}
 
 function PrintHeader() {
   return (
-    <header class="mb-8 pb-6 pt-8">
-      <h1 class="text-4xl font-bold text-base-content tracking-tight">
-        {resume.name}
-      </h1>
-      <p class="text-base-content/50 text-base mt-1">{resume.nameEn}</p>
-
-      <div class="mt-8 grid grid-cols-[auto_1fr] gap-x-6 gap-y-3 text-sm">
-        <span class="font-semibold text-base-content/60">プログラマー歴</span>
-        <span class="text-base-content">{resume.experienceYears}</span>
-        <span class="font-semibold text-base-content/60">フリーランス歴</span>
-        <span class="text-base-content">{resume.freelanceYears}</span>
-      </div>
-
-      <div class="mt-8 space-y-2 text-sm text-base-content/60">
-        <For each={resume.links}>
-          {(link) => (
-            <div>
-              <span class="font-semibold">{link.label}:</span>{" "}
-              <span class="text-base-content">{link.url}</span>
-            </div>
-          )}
-        </For>
-      </div>
-
-      <div class="mt-8 text-sm">
-        <span class="font-semibold text-base-content/60">経験ポジション</span>
-        <ul class="mt-1 space-y-0.5">
-          <For each={resume.positions}>
-            {(pos) => (
-              <li class="text-base-content pl-3 relative before:content-[''] before:absolute before:left-0 before:top-[7px] before:w-1 before:h-1 before:rounded-full before:bg-neutral">
-                {pos}
-              </li>
-            )}
-          </For>
-        </ul>
-      </div>
+    <header class="print-profile mb-5">
+      <h1 class="text-4xl font-bold tracking-tight">{resume.name}</h1>
+      <p class="text-sm mt-1 mb-4">{resume.nameEn}</p>
+      <DetailTable label="プロフィール" rows={[
+        { label: "プログラマー歴", content: resume.experienceYears },
+        { label: "フリーランス歴", content: resume.freelanceYears },
+        { label: "経験ポジション", content: <PrintList items={resume.positions} /> },
+        ...resume.links.map((link) => ({
+          label: link.label,
+          content: <a href={link.url}>{link.url}</a>,
+        })),
+      ]} />
     </header>
   );
 }
@@ -92,116 +89,65 @@ function PrintSkills() {
   );
 }
 
-function BulletList(props: { title: string; items: string[] }) {
-  return (
-    <div>
-      <Show when={props.title}>
-        <h3 class="text-sm font-bold text-base-content mb-1">{props.title}</h3>
-      </Show>
-      <ul class="space-y-0.5">
-        <For each={props.items}>
-          {(item) => (
-            <li class="text-xs text-base-content/80 leading-relaxed pl-3 relative before:content-[''] before:absolute before:left-0 before:top-[7px] before:w-1 before:h-1 before:rounded-full before:bg-neutral">
-              {item}
-            </li>
-          )}
-        </For>
-      </ul>
-    </div>
-  );
-}
-
 function PrintValues() {
   return (
-    <>
-      <section class="print-section mb-5">
-        <h2 class="text-base font-bold text-base-content border-b border-base-300 pb-1 mb-3">
-          価値観
-        </h2>
-        <BulletList title="コアバリュー" items={resume.values} />
-      </section>
-
-      <section class="print-section mb-5">
-        <h2 class="text-base font-bold text-base-content border-b border-base-300 pb-1 mb-3">
-          強み
-        </h2>
-        <BulletList title="" items={resume.strengths} />
-      </section>
-
-      <section class="print-section mb-5">
-        <h2 class="text-base font-bold text-base-content border-b border-base-300 pb-1 mb-3">
-          今後の方向性
-        </h2>
-        <div class="grid grid-cols-2 gap-4">
-          <BulletList title="伸ばしたい領域" items={resume.growthAreas} />
-          <BulletList title="キャリアの方向性" items={resume.careerDirection} />
-        </div>
-      </section>
-    </>
+    <section class="print-content-section mb-5">
+      <h2>価値観・強み・今後の方向性</h2>
+      <DetailTable label="価値観・強み・今後の方向性" rows={[
+        { label: "コアバリュー", content: <PrintList items={resume.values} /> },
+        { label: "強み", content: <PrintList items={resume.strengths} /> },
+        { label: "伸ばしたい領域", content: <PrintList items={resume.growthAreas} /> },
+        { label: "キャリアの方向性", content: <PrintList items={resume.careerDirection} /> },
+      ]} />
+    </section>
   );
 }
 
 function PrintCareer() {
   return (
-    <section class="mb-5">
-      <h2 class="text-base font-bold text-base-content border-b border-base-300 pb-1 mb-3">
-        職務経歴
-      </h2>
-      <div class="space-y-4">
-        <For each={resume.career}>
-          {(entry) => (
-            <div class="print-career-entry border-l-2 border-neutral pl-4 pb-1">
-              <div class="flex items-baseline justify-between gap-2">
-                <h3 class="text-sm font-bold text-base-content">
-                  {entry.title}
-                </h3>
-                <span class="text-xs text-base-content font-medium whitespace-nowrap">
-                  {entry.period}
-                </span>
-              </div>
-              <p class="text-xs text-base-content/60 mt-0.5">{entry.overview}</p>
+    <section class="print-content-section mb-5">
+      <h2>職務経歴</h2>
+      <For each={resume.career}>
+        {(entry) => (
+          <article class="print-career-table-entry">
+            <h3>{entry.title}</h3>
+            <DetailTable label={entry.title} rows={[
+              { label: "期間", content: entry.period },
+              { label: "概要", content: entry.overview },
+              { label: "ポジション", content: <PrintList items={entry.positions} /> },
+              { label: "担当工程", content: entry.phases.join("、") },
+              { label: "使用技術", content: entry.technologies.join("、") },
+              { label: "担当業務", content: <PrintList items={entry.tasks} /> },
+              ...(entry.notes?.length ? [{ label: "取り組み・補足", content: <PrintList items={entry.notes} /> }] : []),
+            ]} />
+          </article>
+        )}
+      </For>
+    </section>
+  );
+}
 
-              <div class="mt-2 grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 text-xs">
-                <span class="font-semibold text-base-content/50">ポジション</span>
-                <span class="text-base-content/80">
-                  {entry.positions.join(", ")}
-                </span>
-
-                <span class="font-semibold text-base-content/50">技術</span>
-                <span class="text-base-content/80">
-                  {entry.technologies.join(", ")}
-                </span>
-              </div>
-
-              <div class="mt-1.5">
-                <ul class="space-y-0.5">
-                  <For each={entry.tasks}>
-                    {(task) => (
-                      <li class="text-xs text-base-content/80 leading-relaxed pl-3 relative before:content-[''] before:absolute before:left-0 before:top-[7px] before:w-1 before:h-1 before:rounded-full before:bg-neutral">
-                        {task}
-                      </li>
-                    )}
-                  </For>
-                </ul>
-              </div>
-
-              <Show when={entry.notes && entry.notes.length > 0}>
-                <div class="mt-1">
-                  <ul class="space-y-0.5">
-                    <For each={entry.notes}>
-                      {(note) => (
-                        <li class="text-xs text-base-content/50 italic leading-relaxed pl-3 relative before:content-[''] before:absolute before:left-0 before:top-[7px] before:w-1 before:h-1 before:rounded-full before:bg-base-300">
-                          {note}
-                        </li>
-                      )}
-                    </For>
-                  </ul>
-                </div>
-              </Show>
-            </div>
-          )}
-        </For>
-      </div>
+function InterestTable(props: { title: string; sections: InterestSection[] }) {
+  return (
+    <section class="print-content-section mb-5">
+      <h2>{props.title}</h2>
+      <DetailTable label={props.title} rows={props.sections.map((section) => ({
+        label: section.title,
+        content: (
+          <ul class="print-item-list">
+            <For each={section.items}>
+              {(item) => (
+                <li>
+                  <span class="font-semibold">{item.name}</span>
+                  <Show when={item.description}>
+                    <span class="block">{item.description}</span>
+                  </Show>
+                </li>
+              )}
+            </For>
+          </ul>
+        ),
+      }))} />
     </section>
   );
 }
@@ -209,79 +155,14 @@ function PrintCareer() {
 function PrintInterests() {
   return (
     <>
-      <section class="print-section mb-5">
-        <h2 class="text-base font-bold text-base-content border-b border-base-300 pb-1 mb-3">
-          最近触って良かった技術
-        </h2>
-        <div class="grid grid-cols-2 gap-4">
-          <For each={resume.recentTech}>
-            {(section) => (
-              <div>
-                <h3 class="text-sm font-bold text-base-content mb-1">
-                  {section.title}
-                </h3>
-                <ul class="space-y-1">
-                  <For each={section.items}>
-                    {(item) => (
-                      <li class="text-xs">
-                        <span class="font-medium text-base-content">
-                          {item.name}
-                        </span>
-                        <Show when={item.description}>
-                          <span class="text-base-content/50">
-                            {" "}
-                            - {item.description}
-                          </span>
-                        </Show>
-                      </li>
-                    )}
-                  </For>
-                </ul>
-              </div>
-            )}
-          </For>
-        </div>
-      </section>
-
-      <section class="print-section mb-5">
-        <h2 class="text-base font-bold text-base-content border-b border-base-300 pb-1 mb-3">
-          関心のある技術
-        </h2>
-        <div class="grid grid-cols-3 gap-4">
-          <For each={resume.interests}>
-            {(section) => (
-              <div>
-                <h3 class="text-sm font-bold text-base-content mb-1">
-                  {section.title}
-                </h3>
-                <ul class="space-y-0.5">
-                  <For each={section.items}>
-                    {(item) => (
-                      <li class="text-xs text-base-content/80 leading-relaxed pl-3 relative before:content-[''] before:absolute before:left-0 before:top-[7px] before:w-1 before:h-1 before:rounded-full before:bg-neutral">
-                        {item.name}
-                      </li>
-                    )}
-                  </For>
-                </ul>
-              </div>
-            )}
-          </For>
-        </div>
-      </section>
-
-      <section class="print-section mb-5">
-        <h2 class="text-base font-bold text-base-content border-b border-base-300 pb-1 mb-3">
-          好き・参考にしている技術書
-        </h2>
-        <ul class="space-y-0.5">
-          <For each={resume.books}>
-            {(book) => (
-              <li class="text-xs text-base-content/80 leading-relaxed pl-3 relative before:content-[''] before:absolute before:left-0 before:top-[7px] before:w-1 before:h-1 before:rounded-full before:bg-neutral">
-                {book}
-              </li>
-            )}
-          </For>
-        </ul>
+      <InterestTable title="最近触って良かった技術" sections={resume.recentTech} />
+      <InterestTable title="関心のある技術" sections={resume.interests} />
+      <section class="print-content-section mb-5">
+        <h2>好き・参考にしている技術書</h2>
+        <table class="print-skills-table" aria-label="好き・参考にしている技術書">
+          <thead><tr><th scope="col">書籍名</th></tr></thead>
+          <tbody><For each={resume.books}>{(book) => <tr><td>{book}</td></tr>}</For></tbody>
+        </table>
       </section>
     </>
   );
