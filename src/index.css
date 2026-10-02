@@ -50,6 +50,60 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Keep the print skills readable in both the preview and on paper. */
+.print-skills-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  margin-bottom: 12px;
+  color: #1f2937;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.print-skills-table caption {
+  text-align: left;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 6px 0;
+  color: #111827;
+  break-after: avoid;
+}
+
+.print-skills-table th,
+.print-skills-table td {
+  border: 1px solid #9ca3af;
+  padding: 6px 8px;
+  text-align: left;
+  vertical-align: top;
+  overflow-wrap: anywhere;
+}
+
+.print-skills-table thead th {
+  background: #f3f4f6;
+  font-weight: 700;
+}
+
+.print-skills-table tbody th {
+  font-weight: 600;
+}
+
+.print-skills-table .print-skills-years {
+  white-space: nowrap;
+}
+
+.print-skills-table thead {
+  display: table-header-group;
+}
+
+.print-skills-table tr {
+  break-inside: avoid;
+}
+
+.print-skills > h2 {
+  break-after: avoid;
+}
+
 @page {
   size: A4;
   margin: 15mm 12mm;

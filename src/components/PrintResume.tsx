@@ -44,54 +44,50 @@ function PrintHeader() {
   );
 }
 
-function SkillTreeFlat(props: { items: SkillItem[]; depth?: number }) {
-  const depth = () => props.depth ?? 0;
-  return (
-    <ul class={depth() > 0 ? "ml-3" : ""}>
-      <For each={props.items}>
-        {(item) => (
-          <li class="leading-relaxed">
-            <span
-              class={
-                depth() === 0
-                  ? "font-semibold text-base-content text-sm"
-                  : "text-base-content/80 text-xs"
-              }
-            >
-              {depth() > 0 && "- "}
-              {item.name}
-            </span>
-            {item.years && (
-              <span class="text-xs text-base-content/40 ml-1">({item.years})</span>
-            )}
-            {item.children && (
-              <SkillTreeFlat items={item.children} depth={depth() + 1} />
-            )}
-          </li>
-        )}
-      </For>
-    </ul>
-  );
+function formatRelatedSkill(item: SkillItem): string {
+  const years = item.years ? `（${item.years}）` : "";
+  const children = item.children?.length
+    ? `［${item.children.map(formatRelatedSkill).join("、")}］`
+    : "";
+  return `${item.name}${years}${children}`;
 }
 
 function PrintSkills() {
   return (
-    <section class="print-section mb-5">
+    <section class="print-skills mb-5">
       <h2 class="text-base font-bold text-base-content border-b border-base-300 pb-1 mb-3">
         スキル
       </h2>
-      <div class="grid grid-cols-2 gap-4">
-        <For each={resume.skills}>
-          {(cat) => (
-            <div>
-              <h3 class="text-sm font-bold text-base-content mb-1">
-                {cat.category}
-              </h3>
-              <SkillTreeFlat items={cat.items} />
-            </div>
-          )}
-        </For>
-      </div>
+      <For each={resume.skills}>
+        {(cat) => (
+          <table class="print-skills-table">
+            <caption>{cat.category}</caption>
+            <colgroup>
+              <col style={{ width: "25%" }} />
+              <col style={{ width: "14%" }} />
+              <col style={{ width: "61%" }} />
+            </colgroup>
+            <thead>
+              <tr>
+                <th scope="col">スキル</th>
+                <th scope="col">経験年数</th>
+                <th scope="col">関連技術・活用内容</th>
+              </tr>
+            </thead>
+            <tbody>
+              <For each={cat.items}>
+                {(item) => (
+                  <tr>
+                    <th scope="row">{item.name}</th>
+                    <td class="print-skills-years">{item.years ?? "—"}</td>
+                    <td>{item.children?.map(formatRelatedSkill).join("、") || "—"}</td>
+                  </tr>
+                )}
+              </For>
+            </tbody>
+          </table>
+        )}
+      </For>
     </section>
   );
 }

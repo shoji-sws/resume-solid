@@ -439,7 +439,7 @@ export const resume: ResumeData = {
   career: [
     {
       title: "転職支援サービスの開発",
-      period: "2025-07 〜 2026-09",
+      period: "2026/07 - 2026/09",
       overview:
         "転職エージェントの一覧取得や面談予約などの機能を持つ転職支援サービスで、実装を中心に担当。大量の既存コードをClaude Codeで調査し、実装方針を決定しながら開発を進めた。",
       positions: ["Web アプリケーションエンジニア"],
